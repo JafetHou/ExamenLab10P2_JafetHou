@@ -17,6 +17,7 @@ public class Boroa_Racing extends javax.swing.JFrame {
         initComponents();
         inicializar();
         this.setLocationRelativeTo(null);
+        //Hilos ab=new Hilos(jpb_CarrerraJug1, jpb_CarrerraJug2, jl_tiempo);
     }
 
     /**
@@ -50,16 +51,16 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jl_ModeloPartida1 = new javax.swing.JLabel();
         jl_VelocidadPartida1 = new javax.swing.JLabel();
         jd_Carrera = new javax.swing.JDialog();
-        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        jpb_CarrerraJug2 = new javax.swing.JProgressBar();
         jpb_CarrerraJug1 = new javax.swing.JProgressBar();
         jl_CarreramodeloJug2 = new javax.swing.JLabel();
         jl_CarreramodeloJug1 = new javax.swing.JLabel();
         jb_iniciarCarrerra = new javax.swing.JButton();
         jb_volver = new javax.swing.JButton();
+        jl_tiempo = new javax.swing.JLabel();
         jd_Crear = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -75,8 +76,10 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jb_entrarPartida = new javax.swing.JButton();
         jb_entrarCrear1 = new javax.swing.JButton();
+        jb_Exit = new javax.swing.JButton();
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setForeground(new java.awt.Color(153, 153, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -205,8 +208,6 @@ public class Boroa_Racing extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -220,26 +221,32 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jLabel12.setText("Progresso");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, -1));
 
-        jProgressBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jProgressBar1.setForeground(new java.awt.Color(0, 0, 255));
-        jPanel3.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 300, 20));
+        jpb_CarrerraJug2.setBackground(new java.awt.Color(255, 255, 255));
+        jpb_CarrerraJug2.setForeground(new java.awt.Color(0, 0, 255));
+        jpb_CarrerraJug2.setMaximum(10000000);
+        jPanel3.add(jpb_CarrerraJug2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 300, 20));
 
         jpb_CarrerraJug1.setBackground(new java.awt.Color(255, 255, 255));
         jpb_CarrerraJug1.setForeground(new java.awt.Color(0, 0, 255));
+        jpb_CarrerraJug1.setMaximum(10000000);
         jPanel3.add(jpb_CarrerraJug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 300, 20));
 
+        jl_CarreramodeloJug2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jl_CarreramodeloJug2.setForeground(new java.awt.Color(0, 0, 0));
-        jl_CarreramodeloJug2.setText("jug2");
-        jPanel3.add(jl_CarreramodeloJug2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, -1, -1));
+        jPanel3.add(jl_CarreramodeloJug2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 130, 30));
 
         jl_CarreramodeloJug1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jl_CarreramodeloJug1.setForeground(new java.awt.Color(0, 0, 0));
-        jl_CarreramodeloJug1.setText("jg1");
-        jPanel3.add(jl_CarreramodeloJug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+        jPanel3.add(jl_CarreramodeloJug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 110, 30));
 
         jb_iniciarCarrerra.setBackground(new java.awt.Color(255, 255, 255));
         jb_iniciarCarrerra.setForeground(new java.awt.Color(0, 0, 0));
         jb_iniciarCarrerra.setText("Iniciar");
+        jb_iniciarCarrerra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_iniciarCarrerraMouseClicked(evt);
+            }
+        });
         jPanel3.add(jb_iniciarCarrerra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
 
         jb_volver.setBackground(new java.awt.Color(255, 255, 255));
@@ -252,30 +259,25 @@ public class Boroa_Racing extends javax.swing.JFrame {
         });
         jPanel3.add(jb_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, -1));
 
+        jl_tiempo.setBackground(new java.awt.Color(0, 0, 0));
+        jl_tiempo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jl_tiempo.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel3.add(jl_tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 140, 100));
+
         javax.swing.GroupLayout jd_CarreraLayout = new javax.swing.GroupLayout(jd_Carrera.getContentPane());
         jd_Carrera.getContentPane().setLayout(jd_CarreraLayout);
         jd_CarreraLayout.setHorizontalGroup(
             jd_CarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
-            .addGroup(jd_CarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jd_CarreraLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jd_CarreraLayout.setVerticalGroup(
             jd_CarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_CarreraLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jd_CarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jd_CarreraLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -377,6 +379,16 @@ public class Boroa_Racing extends javax.swing.JFrame {
         });
         jPanel5.add(jb_entrarCrear1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, -1));
 
+        jb_Exit.setBackground(new java.awt.Color(255, 255, 255));
+        jb_Exit.setForeground(new java.awt.Color(0, 0, 0));
+        jb_Exit.setText("Salir");
+        jb_Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_ExitMouseClicked(evt);
+            }
+        });
+        jPanel5.add(jb_Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 90, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -475,7 +487,7 @@ public class Boroa_Racing extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_CrearCarroMouseClicked
 
     private void jb_iniciar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_iniciar1MouseClicked
-        
+
         jd_Partida.setVisible(false);
         jd_Carrera.pack();
         jd_Carrera.setLocationRelativeTo(this);
@@ -501,6 +513,7 @@ public class Boroa_Racing extends javax.swing.JFrame {
             jl_ModeloPartida1.setText(centi.getModelo());
             String num = Integer.toString(centi.getVelocidad());
             jl_VelocidadPartida1.setText(num);
+            jl_CarreramodeloJug1.setText(centi.getMarca()+" "+centi.getModelo());
         }
     }//GEN-LAST:event_jcb_jug1ItemStateChanged
 
@@ -536,8 +549,30 @@ public class Boroa_Racing extends javax.swing.JFrame {
             jl_ModeloPartida2.setText(centi.getModelo());
             String num = Integer.toString(centi.getVelocidad());
             jl_VelocidadPartida2.setText(num);
+            jl_CarreramodeloJug2.setText(centi.getMarca()+" "+centi.getModelo());
         }
     }//GEN-LAST:event_jcb_jug2ItemStateChanged
+
+    private void jb_ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ExitMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jb_ExitMouseClicked
+
+    private void jb_iniciarCarrerraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_iniciarCarrerraMouseClicked
+
+            jpb_CarrerraJug1.setValue(0);
+            jpb_CarrerraJug2.setValue(0);
+            
+            Carros centi = (Carros) jcb_jug1.getSelectedItem();
+            Carros nela = (Carros) jcb_jug2.getSelectedItem();
+            
+            Hilos ab = new Hilos(jpb_CarrerraJug1, jpb_CarrerraJug2, centi.getVelocidad(), nela.getVelocidad(), jl_tiempo);
+            Thread Carrera = new Thread(ab);
+            
+            Carrera.start();
+        
+        
+        
+    }//GEN-LAST:event_jb_iniciarCarrerraMouseClicked
 
     /**
      * @param args the command line arguments
@@ -594,10 +629,9 @@ public class Boroa_Racing extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JButton jb_CrearCarro;
+    private javax.swing.JButton jb_Exit;
     private javax.swing.JButton jb_VolverMenu;
     private javax.swing.JButton jb_crear;
     private javax.swing.JButton jb_entrarCrear1;
@@ -618,9 +652,12 @@ public class Boroa_Racing extends javax.swing.JFrame {
     private javax.swing.JLabel jl_ModeloPartida2;
     private javax.swing.JLabel jl_VelocidadPartida1;
     private javax.swing.JLabel jl_VelocidadPartida2;
+    private javax.swing.JLabel jl_tiempo;
     private javax.swing.JProgressBar jpb_CarrerraJug1;
+    private javax.swing.JProgressBar jpb_CarrerraJug2;
     private javax.swing.JSpinner js_velocidad;
     private javax.swing.JTextField jt_marca;
     private javax.swing.JTextField jt_modelo;
     // End of variables declaration//GEN-END:variables
+
 }
