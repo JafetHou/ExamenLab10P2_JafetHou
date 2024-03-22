@@ -34,7 +34,7 @@ public class admin {
         this.lista = lista;
     }
     
-    public void setUsuario(Carros carro){
+    public void setCarros(Carros carro){
         this.lista.add(carro);
     }
     
@@ -42,22 +42,22 @@ public class admin {
     public String toString() {
         return "lista:" + lista + '}';
     }
-    public void cargarArchivo() {
+    public void cargar() {
         try {
             lista = new ArrayList();
             Carros centinela; 
             
             if (archivo.exists()) {
-                FileInputStream entrada = new FileInputStream(archivo);
-                ObjectInputStream objeto = new ObjectInputStream(entrada);
+                FileInputStream arch = new FileInputStream(archivo);
+                ObjectInputStream escritura = new ObjectInputStream(arch);
                 try {
-                    while ((centinela = (Carros) objeto.readObject()) != null) {
+                    while ((centinela = (Carros) escritura.readObject()) != null) {
                         lista.add(centinela);
                     }
                 } catch (EOFException e) {
                 }
-                objeto.close();
-                entrada.close();
+                escritura.close();
+                arch.close();
             }
         } catch (Exception e) {
             e.printStackTrace();

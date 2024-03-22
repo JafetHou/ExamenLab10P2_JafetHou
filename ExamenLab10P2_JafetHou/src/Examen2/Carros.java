@@ -38,11 +38,11 @@ public class Carros implements Serializable{
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;
     }
-    
-    public void mostrar(){
-        System.out.println("Marca: "+marca);
-        System.out.println("Modelo: "+modelo);
-        System.out.println("Velocidad: "+ velocidad);
+
+    @Override
+    public String toString() {
+        return marca +" "+ modelo + " Vel: " +velocidad;
     }
+    
     
 }
