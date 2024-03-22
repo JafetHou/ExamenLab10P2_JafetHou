@@ -1,18 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Examen2;
 
-/**
- *
- * @author zenot
- */
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+
 public class Boroa_Racing extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Boroa_Racing
-     */
+    //Fila 2 Silla 13
+    public ArrayList<Carros> automoviles;
+    
     public Boroa_Racing() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -27,28 +26,29 @@ public class Boroa_Racing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        jd_Partida = new javax.swing.JDialog();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jb_CrearCarro = new javax.swing.JButton();
         jb_iniciar1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jcb_jug1 = new javax.swing.JComboBox<>();
+        jcb_jug2 = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jl_MarcaPartida2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jDialog2 = new javax.swing.JDialog();
+        jl_ModeloPartida2 = new javax.swing.JLabel();
+        jl_MarcaPartida1 = new javax.swing.JLabel();
+        jl_VelocidadPartida2 = new javax.swing.JLabel();
+        jl_ModeloPartida3 = new javax.swing.JLabel();
+        jl_VelocidadPartida1 = new javax.swing.JLabel();
+        jd_Carrera = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -56,6 +56,8 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jpb_CarrerraJug1 = new javax.swing.JProgressBar();
         jl_CarreramodeloJug2 = new javax.swing.JLabel();
         jl_CarreramodeloJug1 = new javax.swing.JLabel();
+        jb_iniciarCarrerra = new javax.swing.JButton();
+        jb_volver = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -79,11 +81,6 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Jugador 2");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Velocidad");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, -1, -1));
 
         jb_CrearCarro.setBackground(new java.awt.Color(255, 255, 255));
         jb_CrearCarro.setForeground(new java.awt.Color(0, 0, 0));
@@ -111,11 +108,15 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jLabel9.setText("Jugador 1");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 180, -1));
+        jcb_jug1.setBackground(new java.awt.Color(255, 255, 255));
+        jcb_jug1.setForeground(new java.awt.Color(0, 0, 0));
+        jcb_jug1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jcb_jug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 180, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 180, -1));
+        jcb_jug2.setBackground(new java.awt.Color(255, 255, 255));
+        jcb_jug2.setForeground(new java.awt.Color(0, 0, 0));
+        jcb_jug2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jcb_jug2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 180, -1));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
@@ -123,8 +124,8 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jLabel10.setText("Marca");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
 
-        jLabel11.setText("jLabel11");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        jl_MarcaPartida2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jl_MarcaPartida2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 210, 40));
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
@@ -144,11 +145,6 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jLabel15.setText("Marca");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Velocidad");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
-
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
@@ -161,29 +157,37 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jLabel18.setText("Velocidad");
         jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
 
-        jLabel19.setText("jLabel12");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, -1, -1));
+        jl_ModeloPartida2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jl_ModeloPartida2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 210, 40));
 
-        jLabel20.setText("jLabel12");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
+        jl_MarcaPartida1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jl_MarcaPartida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 210, 40));
 
-        jLabel21.setText("jLabel12");
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, -1, -1));
+        jl_VelocidadPartida2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jl_VelocidadPartida2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 210, 40));
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        jl_ModeloPartida3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jl_ModeloPartida3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 210, 40));
+
+        jl_VelocidadPartida1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jl_VelocidadPartida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 210, 40));
+
+        javax.swing.GroupLayout jd_PartidaLayout = new javax.swing.GroupLayout(jd_Partida.getContentPane());
+        jd_Partida.getContentPane().setLayout(jd_PartidaLayout);
+        jd_PartidaLayout.setHorizontalGroup(
+            jd_PartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_PartidaLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        jd_PartidaLayout.setVerticalGroup(
+            jd_PartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_PartidaLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -215,17 +219,42 @@ public class Boroa_Racing extends javax.swing.JFrame {
         jl_CarreramodeloJug1.setText("jg1");
         jPanel3.add(jl_CarreramodeloJug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
 
-        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
-        jDialog2.getContentPane().setLayout(jDialog2Layout);
-        jDialog2Layout.setHorizontalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jb_iniciarCarrerra.setBackground(new java.awt.Color(255, 255, 255));
+        jb_iniciarCarrerra.setForeground(new java.awt.Color(0, 0, 0));
+        jb_iniciarCarrerra.setText("Iniciar");
+        jPanel3.add(jb_iniciarCarrerra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, -1, -1));
+
+        jb_volver.setBackground(new java.awt.Color(255, 255, 255));
+        jb_volver.setForeground(new java.awt.Color(0, 0, 0));
+        jb_volver.setText("Volver");
+        jb_volver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_volverMouseClicked(evt);
+            }
+        });
+        jPanel3.add(jb_volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, -1));
+
+        javax.swing.GroupLayout jd_CarreraLayout = new javax.swing.GroupLayout(jd_Carrera.getContentPane());
+        jd_Carrera.getContentPane().setLayout(jd_CarreraLayout);
+        jd_CarreraLayout.setHorizontalGroup(
+            jd_CarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+            .addGroup(jd_CarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_CarreraLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jDialog2Layout.setVerticalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog2Layout.createSequentialGroup()
+        jd_CarreraLayout.setVerticalGroup(
+            jd_CarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_CarreraLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jd_CarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_CarreraLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -295,17 +324,70 @@ public class Boroa_Racing extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void combobox(){
+        
+    }
+    
     private void jb_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMouseClicked
+        
+        if(jt_marca.getText().equals("" )){
+            
+            JOptionPane.showMessageDialog(this, "No a ingresado marca");
+            
+        }else if(jt_modelo.getText().equals("")){
+            
+            JOptionPane.showMessageDialog(this, "No a ingresado modelo");
+            
+        }else{
+            try {
+            
+                Carros nCarro = new Carros(jt_marca.getText(), jt_modelo.getText(), (int)js_velocidad.getValue());
+                admin adCarro = new admin("./carros.bin");
+                adCarro.cargarArchivo();
+                adCarro.setUsuario(nCarro);
+                adCarro.escribir();
+                automoviles.add(nCarro);
+                        
+                jt_marca.setText("");
+                jt_modelo.setText("");
+                js_velocidad.setValue(1);
+                this.setVisible(false);
+                jd_Partida.pack();
+                jd_Partida.setLocationRelativeTo(this);
+                jd_Partida.setModal(true);
+                jd_Partida.setVisible(true);
+            } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+            }
+        }
         
     }//GEN-LAST:event_jb_crearMouseClicked
 
     private void jb_CrearCarroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CrearCarroMouseClicked
-        // TODO add your handling code here:
+        jd_Partida.setVisible(false);
+        this.pack();
+        this.setLocationRelativeTo(this);
+        this.setVisible(true);
     }//GEN-LAST:event_jb_CrearCarroMouseClicked
 
     private void jb_iniciar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_iniciar1MouseClicked
-        // TODO add your handling code here:
+        
+        jd_Partida.setVisible(false);
+        jd_Carrera.pack();
+        jd_Carrera.setLocationRelativeTo(this);
+        jd_Carrera.setModal(true);
+        jd_Carrera.setVisible(true);
     }//GEN-LAST:event_jb_iniciar1MouseClicked
+
+    private void jb_volverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_volverMouseClicked
+        jd_Carrera.setVisible(false);
+        jd_Partida.pack();
+        jd_Partida.setLocationRelativeTo(this);
+        jd_Partida.setModal(true);
+        jd_Partida.setVisible(true);
+    }//GEN-LAST:event_jb_volverMouseClicked
 
     /**
      * @param args the command line arguments
@@ -343,40 +425,43 @@ public class Boroa_Racing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JButton jb_CrearCarro;
     private javax.swing.JButton jb_crear;
     private javax.swing.JButton jb_iniciar1;
+    private javax.swing.JButton jb_iniciarCarrerra;
+    private javax.swing.JButton jb_volver;
+    private javax.swing.JComboBox<String> jcb_jug1;
+    private javax.swing.JComboBox<String> jcb_jug2;
+    private javax.swing.JDialog jd_Carrera;
+    private javax.swing.JDialog jd_Partida;
     private javax.swing.JLabel jl_CarreramodeloJug1;
     private javax.swing.JLabel jl_CarreramodeloJug2;
+    private javax.swing.JLabel jl_MarcaPartida1;
+    private javax.swing.JLabel jl_MarcaPartida2;
+    private javax.swing.JLabel jl_ModeloPartida2;
+    private javax.swing.JLabel jl_ModeloPartida3;
+    private javax.swing.JLabel jl_VelocidadPartida1;
+    private javax.swing.JLabel jl_VelocidadPartida2;
     private javax.swing.JProgressBar jpb_CarrerraJug1;
     private javax.swing.JSpinner js_velocidad;
     private javax.swing.JTextField jt_marca;
